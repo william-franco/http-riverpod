@@ -2,7 +2,7 @@
     package="br.com.williamfranco.http_riverpod">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-
+    
    <application
         android:label="Http Riverpod"
         android:name="${applicationName}"

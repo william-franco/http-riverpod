@@ -1,6 +1,6 @@
 # Http Riverpod
 
-Http app with riverpod.
+Application to manage states in flutter using Riverpod and Clean Architecture.
 
 Made with Flutter and some coffee cups. :D
 

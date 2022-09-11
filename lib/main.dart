@@ -1,9 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:http_riverpod/features/bottom/bottom_view.dart';
-import 'package:http_riverpod/features/setting/setting_singleton.dart';
+// Project imports:
+import 'package:http_riverpod/src/features/bottom/presentation/views/bottom_view.dart';
+import 'package:http_riverpod/src/features/setting/presentation/riverpod/setting_provider.dart';
 
 void main() {
   runApp(
@@ -12,18 +15,18 @@ void main() {
 }
 
 class MyApp extends ConsumerWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeData = ref.watch(settingProvider);
+    final state = ref.watch(settingProvider);
     return MaterialApp(
-      title: 'Counter Riverpod',
+      title: 'Http Riverpod',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      themeMode: themeData ? ThemeMode.dark : ThemeMode.light,
+      themeMode: state ? ThemeMode.dark : ThemeMode.light,
       home: const BottomView(),
     );
   }
