@@ -58,6 +58,10 @@ flutter_riverpod
 2.14
 file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/flutter_riverpod-1.0.4/
 file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/flutter_riverpod-1.0.4/lib/
+go_router
+2.17
+file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/go_router-5.0.0/
+file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/go_router-5.0.0/lib/
 http_parser
 2.12
 file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.1/
@@ -74,6 +78,10 @@ lints
 2.17
 file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/lints-2.0.0/
 file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/lints-2.0.0/lib/
+logging
+2.12
+file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2/
+file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2/lib/
 matcher
 2.12
 file:///home/william/Development/Flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.12/
@@ -220,6 +228,6 @@ file:///home/william/Development/Flutter/packages/flutter_web_plugins/
 file:///home/william/Development/Flutter/packages/flutter_web_plugins/lib/
 http_riverpod
 2.18
-file:///home/william/Documentos/version-3-3/http_riverpod/
-file:///home/william/Documentos/version-3-3/http_riverpod/lib/
+file:///home/william/Documentos/version-3-3/riverpod/http_riverpod/
+file:///home/william/Documentos/version-3-3/riverpod/http_riverpod/lib/
 2

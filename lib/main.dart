@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:http_riverpod/src/features/bottom/presentation/views/bottom_view.dart';
 import 'package:http_riverpod/src/features/setting/presentation/riverpod/setting_provider.dart';
+import 'package:http_riverpod/src/routes/routes.dart';
 
 void main() {
   runApp(
@@ -21,13 +21,13 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(settingProvider);
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Http Riverpod',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: state ? ThemeMode.dark : ThemeMode.light,
-      home: const BottomView(),
+      routerConfig: Routes.routes,
     );
   }
 }

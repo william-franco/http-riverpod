@@ -18,6 +18,10 @@ William Franco (Dev mobile).
 |----------|----------|----------|
 | ![example](screenshots/screen-4.png) | ![example](screenshots/screen-5.png) | ![example](screenshots/screen-6.png) |
 
+## Models
+
+Models were created using [JSON to Dart](https://javiercbk.github.io/json_to_dart/).
+
 ## License
 
 MIT License
