@@ -8,7 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http_riverpod/src/features/todos/presentation/riverpod/todo_provider.dart';
 import 'package:http_riverpod/src/features/todos/presentation/state/todo_state.dart';
 import 'package:http_riverpod/src/widgets/atoms/loading_atom.dart';
+import 'package:http_riverpod/src/widgets/atoms/text_atom.dart';
 import 'package:http_riverpod/src/widgets/atoms/text_failed_atom.dart';
+import 'package:http_riverpod/src/widgets/molecules/app_bar_molecule.dart';
 
 class TodoView extends ConsumerWidget {
   const TodoView({super.key});
@@ -17,9 +19,9 @@ class TodoView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(todoNotifierProvider);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: const Text('Todos'),
+      appBar: AppBarMolecule(
+        isBack: false,
+        title: const TextAtom(text: 'Todos'),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh_outlined),

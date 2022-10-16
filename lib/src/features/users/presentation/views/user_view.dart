@@ -8,7 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http_riverpod/src/features/users/presentation/riverpod/user_provider.dart';
 import 'package:http_riverpod/src/features/users/presentation/state/user_state.dart';
 import 'package:http_riverpod/src/widgets/atoms/loading_atom.dart';
+import 'package:http_riverpod/src/widgets/atoms/text_atom.dart';
 import 'package:http_riverpod/src/widgets/atoms/text_failed_atom.dart';
+import 'package:http_riverpod/src/widgets/molecules/app_bar_molecule.dart';
 
 class UserView extends ConsumerWidget {
   const UserView({super.key});
@@ -17,9 +19,9 @@ class UserView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(userNotifierProvider);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: const Text('Users'),
+      appBar: AppBarMolecule(
+        isBack: false,
+        title: const TextAtom(text: 'Users'),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh_outlined),
