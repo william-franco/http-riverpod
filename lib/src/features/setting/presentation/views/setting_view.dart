@@ -17,7 +17,6 @@ class SettingView extends ConsumerWidget {
     final state = ref.watch(settingProvider);
     return Scaffold(
       appBar: const AppBarMolecule(
-        isBack: false,
         title: TextAtom(text: 'Settings'),
       ),
       body: SafeArea(

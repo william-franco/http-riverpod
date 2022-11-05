@@ -20,7 +20,6 @@ class TodoView extends ConsumerWidget {
     final state = ref.watch(todoNotifierProvider);
     return Scaffold(
       appBar: AppBarMolecule(
-        isBack: false,
         title: const TextAtom(text: 'Todos'),
         actions: [
           IconButton(

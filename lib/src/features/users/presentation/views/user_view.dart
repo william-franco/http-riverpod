@@ -20,7 +20,6 @@ class UserView extends ConsumerWidget {
     final state = ref.watch(userNotifierProvider);
     return Scaffold(
       appBar: AppBarMolecule(
-        isBack: false,
         title: const TextAtom(text: 'Users'),
         actions: [
           IconButton(
