@@ -29,21 +29,22 @@ class _BottomViewState extends ConsumerState<BottomView> {
     final state = ref.watch(bottomProvider);
     return Scaffold(
       body: tabs[state],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: state,
-        onTap: (int index) {
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: state,
+        animationDuration: const Duration(milliseconds: 600),
+        onDestinationSelected: (int index) {
           ref.read(bottomProvider.notifier).currentIndex(index);
         },
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+        destinations: const <NavigationDestination>[
+          NavigationDestination(
             icon: Icon(Icons.person_outline),
             label: 'Users',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.list_outlined),
             label: 'Todos',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.settings_outlined),
             label: 'Settings',
           ),

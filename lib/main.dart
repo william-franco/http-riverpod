@@ -24,10 +24,14 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'Http Riverpod',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData.light(
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData.dark(
+        useMaterial3: true,
+      ),
       themeMode: state ? ThemeMode.dark : ThemeMode.light,
-      routerConfig: Routes.routes,
+      routerConfig: routesApp.routes,
     );
   }
 }

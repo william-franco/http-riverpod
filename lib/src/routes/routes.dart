@@ -1,13 +1,18 @@
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
+
+// Package imports:
 import 'package:go_router/go_router.dart';
+
+// Project imports:
 import 'package:http_riverpod/src/features/bottom/presentation/views/bottom_view.dart';
 
-class Routes {
-  Routes._();
+final routesApp = Routes();
 
+class Routes {
   static const String home = '/';
 
-  static final routes = GoRouter(
+  final routes = GoRouter(
     debugLogDiagnostics: true,
     initialLocation: home,
     routes: [
