@@ -32,15 +32,15 @@ class TodoView extends ConsumerWidget {
         child: Consumer(
           builder: (context, ref, child) {
             if (state is TodoLoaded) {
-              return ListView.separated(
+              return ListView.builder(
                 itemCount: state.todos.length,
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 8.0),
                 itemBuilder: (BuildContext context, int index) {
                   final user = state.todos[index];
-                  return ListTile(
-                    title: Text(user.title!),
-                    subtitle: Text('${user.completed!}'),
+                  return Card(
+                    child: ListTile(
+                      title: Text(user.title!),
+                      subtitle: Text('${user.completed!}'),
+                    ),
                   );
                 },
               );

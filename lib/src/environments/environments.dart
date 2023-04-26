@@ -1,6 +1,4 @@
-class Environment {
-  Environment._();
-
+class Environments {
   static const baseURL = String.fromEnvironment(
     'jsonplaceholder',
     defaultValue: 'https://jsonplaceholder.typicode.com',

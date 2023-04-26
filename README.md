@@ -12,11 +12,11 @@ William Franco (Dev mobile).
 
 | Image 1 | Image 2 | Image 3 |
 |----------|----------|----------|
-| ![example](assets/screenshots/screen-1.png) | ![example](assets/screenshots/screen-2.png) | ![example](assets/screenshots/screen-3.png) |
+| ![App Screenshot](assets/screenshots/screen-1.png) | ![App Screenshot](assets/screenshots/screen-2.png) | ![App Screenshot](assets/screenshots/screen-3.png) |
 
 | Image 4 | Image 5 | Image 6 |
 |----------|----------|----------|
-| ![example](assets/screenshots/screen-4.png) | ![example](assets/screenshots/screen-5.png) | ![example](assets/screenshots/screen-6.png) |
+| ![App Screenshot](assets/screenshots/screen-4.png) | ![App Screenshot](assets/screenshots/screen-5.png) | ![App Screenshot](assets/screenshots/screen-6.png) |
 
 ## Models
 
@@ -26,7 +26,7 @@ Models were created using [JSON to Dart](https://javiercbk.github.io/json_to_dar
 
 MIT License
 
-Copyright (c) 2022 William Franco
+Copyright (c) 2023 William Franco
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
