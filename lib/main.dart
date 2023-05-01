@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:http_riverpod/src/features/setting/presentation/riverpod/setting_provider.dart';
+import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
 import 'package:http_riverpod/src/routes/routes.dart';
 
 void main() {
   runApp(
-    const ProviderScope(child: MyApp()),
+    const ProviderScope(
+      child: MyApp(),
+    ),
   );
 }
 
@@ -20,7 +22,7 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(settingProvider);
+    final state = ref.watch(settingNotifierProvider);
     return MaterialApp.router(
       title: 'Http Riverpod',
       debugShowCheckedModeBanner: false,

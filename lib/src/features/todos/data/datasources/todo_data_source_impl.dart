@@ -1,34 +1,32 @@
 // Dart imports:
 import 'dart:developer';
 
-// Package imports:
-import 'package:dio/dio.dart';
-
 // Project imports:
 import 'package:http_riverpod/src/environments/environments.dart';
 import 'package:http_riverpod/src/features/todos/data/datasources/todo_data_source.dart';
 import 'package:http_riverpod/src/features/todos/data/models/todo_model.dart';
 import 'package:http_riverpod/src/features/todos/domain/entities/todo_entity.dart';
+import 'package:http_riverpod/src/services/http_service.dart';
 
 class TodoDataSourceImpl implements TodoDataSource {
-  List<TodoEntity> listOfTodos = [];
+  final List<TodoEntity> _listOfTodos = [];
 
-  final Dio _dio;
+  final HttpService httpService;
 
-  TodoDataSourceImpl(this._dio);
+  TodoDataSourceImpl({required this.httpService});
 
   @override
   Future<List<TodoEntity>> getTodos() async {
     try {
-      final response = await _dio.get(
-        Environments.baseURL + Environments.todos,
+      final response = await httpService.getData(
+        path: Environments.baseURL + Environments.todos,
       );
-      listOfTodos.addAll(TodoModel.jsonToList(response.data));
-      log('List: $listOfTodos');
-      return listOfTodos;
+      _listOfTodos.addAll(TodoModel.jsonToList(response.data));
+      log('List: $_listOfTodos');
+      return _listOfTodos;
     } catch (e) {
       log('$e');
     }
-    return listOfTodos;
+    return _listOfTodos;
   }
 }

@@ -7,12 +7,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class BottomNotifier extends StateNotifier<int> {
   BottomNotifier() : super(0);
 
-  void currentIndex(int index) {
+  void changeIndexBottom(int index) {
     state = index;
-    _debugProvider();
+    _debug();
   }
 
-  void _debugProvider() {
+  void _debug() {
     log('Current tab: $state');
   }
 }

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
 
 // Project imports:
-import 'package:http_riverpod/src/features/bottom/presentation/riverpod/bottom_provider.dart';
 import 'package:http_riverpod/src/features/setting/presentation/views/setting_view.dart';
 import 'package:http_riverpod/src/features/todos/presentation/views/todo_view.dart';
 import 'package:http_riverpod/src/features/users/presentation/views/user_view.dart';
@@ -18,7 +18,7 @@ class BottomView extends ConsumerStatefulWidget {
 }
 
 class _BottomViewState extends ConsumerState<BottomView> {
-  final tabs = [
+  final listOfWidgets = [
     const UserView(),
     const TodoView(),
     const SettingView(),
@@ -26,14 +26,14 @@ class _BottomViewState extends ConsumerState<BottomView> {
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(bottomProvider);
+    final state = ref.watch(bottomNotifierProvider);
     return Scaffold(
-      body: tabs[state],
+      body: listOfWidgets.elementAt(state),
       bottomNavigationBar: NavigationBar(
         selectedIndex: state,
         animationDuration: const Duration(milliseconds: 600),
         onDestinationSelected: (int index) {
-          ref.read(bottomProvider.notifier).currentIndex(index);
+          ref.read(bottomNotifierProvider.notifier).changeIndexBottom(index);
         },
         destinations: const <NavigationDestination>[
           NavigationDestination(

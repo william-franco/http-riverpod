@@ -3,20 +3,33 @@ import 'dart:developer';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+// Project imports:
+import 'package:http_riverpod/src/constants/constants.dart';
+import 'package:http_riverpod/src/services/storage_service.dart';
 
 class SettingNotifier extends StateNotifier<bool> {
-  SettingNotifier(this.prefs) : super(prefs?.getBool('theme') ?? false);
+  final StorageService storageService;
 
-  final SharedPreferences? prefs;
-
-  void changeTheme(bool value) {
-    state = value;
-    prefs!.setBool('theme', state);
-    _debugProvider();
+  SettingNotifier({required this.storageService}) : super(false) {
+    _loadTheme();
   }
 
-  void _debugProvider() {
+  Future<void> _loadTheme() async {
+    state = await storageService.getBoolValue(key: Constants.darkMode);
+    _debug();
+  }
+
+  Future<void> changeTheme(bool isDarkTheme) async {
+    state = isDarkTheme;
+    await storageService.setBoolValue(
+      key: Constants.darkMode,
+      value: isDarkTheme,
+    );
+    _debug();
+  }
+
+  void _debug() {
     log('Dark theme: $state');
   }
 }

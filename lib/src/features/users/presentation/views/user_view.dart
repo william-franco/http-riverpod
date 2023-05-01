@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:http_riverpod/src/features/users/presentation/riverpod/user_provider.dart';
+import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
 import 'package:http_riverpod/src/features/users/presentation/state/user_state.dart';
 import 'package:http_riverpod/src/widgets/atoms/loading_atom.dart';
 import 'package:http_riverpod/src/widgets/atoms/text_atom.dart';
@@ -19,41 +19,38 @@ class UserView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(userNotifierProvider);
     return Scaffold(
-      appBar: AppBarMolecule(
-        title: const TextAtom(text: 'Users'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh_outlined),
-            onPressed: () async => await ref.refresh(userNotifierProvider),
-          ),
-        ],
+      appBar: const AppBarMolecule(
+        title: TextAtom(text: 'Users'),
       ),
-      body: SafeArea(
-        child: Consumer(
-          builder: (context, ref, child) {
-            if (state is UserLoaded) {
-              return ListView.builder(
-                itemCount: state.users.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final user = state.users[index];
-                  return Card(
-                    child: ListTile(
-                      title: Text(user.username!),
-                      subtitle: Text(user.email!),
-                    ),
-                  );
-                },
-              );
-            } else if (state is UserLoading) {
-              return const Center(child: LoadingAtom());
-            } else if (state is UserError) {
-              return Center(
-                child: TextFailedAtom(error: state.message),
-              );
-            } else {
-              return const Center(child: LoadingAtom());
-            }
+      body: Center(
+        child: RefreshIndicator(
+          onRefresh: () async {
+            return await ref.refresh(userNotifierProvider);
           },
+          child: Consumer(
+            builder: (context, ref, child) {
+              if (state is UserLoaded) {
+                return ListView.builder(
+                  itemCount: state.users.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final user = state.users[index];
+                    return Card(
+                      child: ListTile(
+                        title: Text(user.username!),
+                        subtitle: Text(user.email!),
+                      ),
+                    );
+                  },
+                );
+              } else if (state is UserLoading) {
+                return const LoadingAtom();
+              } else if (state is UserError) {
+                return TextFailedAtom(error: state.message);
+              } else {
+                return const LoadingAtom();
+              }
+            },
+          ),
         ),
       ),
     );

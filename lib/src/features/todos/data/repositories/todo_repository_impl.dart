@@ -4,12 +4,12 @@ import 'package:http_riverpod/src/features/todos/domain/entities/todo_entity.dar
 import 'package:http_riverpod/src/features/todos/domain/repositories/todo_repository.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
-  final TodoDataSource _dataSource;
+  final TodoDataSource dataSource;
 
-  TodoRepositoryImpl(this._dataSource);
+  TodoRepositoryImpl({required this.dataSource});
 
   @override
   Future<List<TodoEntity>> getTodos() async {
-    return await _dataSource.getTodos();
+    return await dataSource.getTodos();
   }
 }

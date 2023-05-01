@@ -4,12 +4,12 @@ import 'package:http_riverpod/src/features/users/domain/repositories/user_reposi
 import 'package:http_riverpod/src/features/users/domain/usecases/user_use_case.dart';
 
 class UserUseCaseImpl implements UserUseCase {
-  final UserRepository _repository;
+  final UserRepository repository;
 
-  UserUseCaseImpl(this._repository);
+  UserUseCaseImpl({required this.repository});
 
   @override
   Future<List<UserEntity>> getUsers() async {
-    return await _repository.getUsers();
+    return await repository.getUsers();
   }
 }

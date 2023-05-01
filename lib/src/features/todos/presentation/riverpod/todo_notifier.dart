@@ -10,16 +10,16 @@ import 'package:http_riverpod/src/features/todos/domain/usecases/todo_use_case.d
 import 'package:http_riverpod/src/features/todos/presentation/state/todo_state.dart';
 
 class TodoNotifier extends StateNotifier<TodoState> {
-  final TodoUseCase _useCase;
+  final TodoUseCase useCase;
 
-  TodoNotifier(this._useCase) : super(const TodoInitial()) {
+  TodoNotifier({required this.useCase}) : super(const TodoInitial()) {
     getTodos();
   }
 
   Future<void> getTodos() async {
     try {
       state = const TodoLoading();
-      final albums = await _useCase.getTodos();
+      final albums = await useCase.getTodos();
       state = TodoLoaded(albums);
       _debugProvider();
     } on NetworkException {

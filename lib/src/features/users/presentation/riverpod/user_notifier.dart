@@ -10,16 +10,16 @@ import 'package:http_riverpod/src/features/users/domain/usecases/user_use_case.d
 import 'package:http_riverpod/src/features/users/presentation/state/user_state.dart';
 
 class UserNotifier extends StateNotifier<UserState> {
-  final UserUseCase _useCase;
+  final UserUseCase useCase;
 
-  UserNotifier(this._useCase) : super(const UserInitial()) {
+  UserNotifier({required this.useCase}) : super(const UserInitial()) {
     getUsers();
   }
 
   Future<void> getUsers() async {
     try {
       state = const UserLoading();
-      final albums = await _useCase.getUsers();
+      final albums = await useCase.getUsers();
       state = UserLoaded(albums);
       _debugProvider();
     } on NetworkException {

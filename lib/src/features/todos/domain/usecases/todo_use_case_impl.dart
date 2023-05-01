@@ -4,12 +4,12 @@ import 'package:http_riverpod/src/features/todos/domain/repositories/todo_reposi
 import 'package:http_riverpod/src/features/todos/domain/usecases/todo_use_case.dart';
 
 class TodoUseCaseImpl implements TodoUseCase {
-  final TodoRepository _repository;
+  final TodoRepository repository;
 
-  TodoUseCaseImpl(this._repository);
+  TodoUseCaseImpl({required this.repository});
 
   @override
   Future<List<TodoEntity>> getTodos() async {
-    return await _repository.getTodos();
+    return await repository.getTodos();
   }
 }
