@@ -7,10 +7,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project imports:
 import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
 import 'package:http_riverpod/src/features/users/presentation/state/user_state.dart';
-import 'package:http_riverpod/src/widgets/atoms/loading_atom.dart';
-import 'package:http_riverpod/src/widgets/atoms/text_atom.dart';
-import 'package:http_riverpod/src/widgets/atoms/text_failed_atom.dart';
-import 'package:http_riverpod/src/widgets/molecules/app_bar_molecule.dart';
 
 class UserView extends ConsumerWidget {
   const UserView({super.key});
@@ -19,8 +15,8 @@ class UserView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(userNotifierProvider);
     return Scaffold(
-      appBar: const AppBarMolecule(
-        title: TextAtom(text: 'Users'),
+      appBar: AppBar(
+        title: const Text('Users'),
       ),
       body: Center(
         child: RefreshIndicator(
@@ -43,11 +39,11 @@ class UserView extends ConsumerWidget {
                   },
                 );
               } else if (state is UserLoading) {
-                return const LoadingAtom();
+                return const CircularProgressIndicator();
               } else if (state is UserError) {
-                return TextFailedAtom(error: state.message);
+                return Text(state.message);
               } else {
-                return const LoadingAtom();
+                return const CircularProgressIndicator();
               }
             },
           ),

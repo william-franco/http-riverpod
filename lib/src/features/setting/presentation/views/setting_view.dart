@@ -6,8 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
-import 'package:http_riverpod/src/widgets/atoms/text_atom.dart';
-import 'package:http_riverpod/src/widgets/molecules/app_bar_molecule.dart';
 
 class SettingView extends ConsumerWidget {
   const SettingView({super.key});
@@ -16,8 +14,8 @@ class SettingView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(settingNotifierProvider);
     return Scaffold(
-      appBar: const AppBarMolecule(
-        title: TextAtom(text: 'Settings'),
+      appBar: AppBar(
+        title: const Text('Settings'),
       ),
       body: SafeArea(
         child: ListView(

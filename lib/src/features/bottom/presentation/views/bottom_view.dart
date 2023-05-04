@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
 
 // Project imports:
+import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
 import 'package:http_riverpod/src/features/setting/presentation/views/setting_view.dart';
 import 'package:http_riverpod/src/features/todos/presentation/views/todo_view.dart';
 import 'package:http_riverpod/src/features/users/presentation/views/user_view.dart';

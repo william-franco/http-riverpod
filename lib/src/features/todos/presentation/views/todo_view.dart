@@ -3,14 +3,10 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
 
 // Project imports:
+import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
 import 'package:http_riverpod/src/features/todos/presentation/state/todo_state.dart';
-import 'package:http_riverpod/src/widgets/atoms/loading_atom.dart';
-import 'package:http_riverpod/src/widgets/atoms/text_atom.dart';
-import 'package:http_riverpod/src/widgets/atoms/text_failed_atom.dart';
-import 'package:http_riverpod/src/widgets/molecules/app_bar_molecule.dart';
 
 class TodoView extends ConsumerWidget {
   const TodoView({super.key});
@@ -19,8 +15,8 @@ class TodoView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(todoNotifierProvider);
     return Scaffold(
-      appBar: const AppBarMolecule(
-        title: TextAtom(text: 'Todos'),
+      appBar: AppBar(
+        title: const Text('Todos'),
       ),
       body: Center(
         child: RefreshIndicator(
@@ -43,11 +39,11 @@ class TodoView extends ConsumerWidget {
                   },
                 );
               } else if (state is TodoLoading) {
-                return const LoadingAtom();
+                return const CircularProgressIndicator();
               } else if (state is TodoError) {
-                return TextFailedAtom(error: state.message);
+                return Text(state.message);
               } else {
-                return const LoadingAtom();
+                return const CircularProgressIndicator();
               }
             },
           ),
