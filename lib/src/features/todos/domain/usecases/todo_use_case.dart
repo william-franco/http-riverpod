@@ -1,6 +1,6 @@
 // Project imports:
 import 'package:http_riverpod/src/features/todos/domain/entities/todo_entity.dart';
 
-abstract class TodoUseCase {
+abstract interface class TodoUseCase {
   Future<List<TodoEntity>> getTodos();
 }

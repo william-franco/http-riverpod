@@ -1,7 +1,7 @@
 // Package imports:
 import 'package:shared_preferences/shared_preferences.dart';
 
-abstract class StorageService {
+abstract interface class StorageService {
   Future<bool> getBoolValue({required String key});
   Future<void> setBoolValue({required String key, required bool value});
 }

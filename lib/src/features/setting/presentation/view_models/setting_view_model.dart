@@ -8,19 +8,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http_riverpod/src/constants/constants.dart';
 import 'package:http_riverpod/src/services/storage_service.dart';
 
-class SettingNotifier extends StateNotifier<bool> {
+class SettingViewModel extends StateNotifier<bool> {
   final StorageService storageService;
 
-  SettingNotifier({required this.storageService}) : super(false) {
-    _loadTheme();
+  SettingViewModel({
+    required this.storageService,
+  }) : super(false) {
+    loadTheme();
   }
 
-  Future<void> _loadTheme() async {
+  Future<void> loadTheme() async {
     state = await storageService.getBoolValue(key: Constants.darkMode);
     _debug();
   }
 
-  Future<void> changeTheme(bool isDarkTheme) async {
+  Future<void> changeTheme({required bool isDarkTheme}) async {
     state = isDarkTheme;
     await storageService.setBoolValue(
       key: Constants.darkMode,

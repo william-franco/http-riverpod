@@ -6,10 +6,16 @@ import 'package:http_riverpod/src/features/todos/domain/repositories/todo_reposi
 class TodoRepositoryImpl implements TodoRepository {
   final TodoDataSource dataSource;
 
-  TodoRepositoryImpl({required this.dataSource});
+  TodoRepositoryImpl({
+    required this.dataSource,
+  });
 
   @override
   Future<List<TodoEntity>> getTodos() async {
-    return await dataSource.getTodos();
+    try {
+      return await dataSource.getTodos();
+    } catch (error) {
+      throw Exception(error);
+    }
   }
 }

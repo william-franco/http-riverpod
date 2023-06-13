@@ -6,10 +6,16 @@ import 'package:http_riverpod/src/features/todos/domain/usecases/todo_use_case.d
 class TodoUseCaseImpl implements TodoUseCase {
   final TodoRepository repository;
 
-  TodoUseCaseImpl({required this.repository});
+  TodoUseCaseImpl({
+    required this.repository,
+  });
 
   @override
   Future<List<TodoEntity>> getTodos() async {
-    return await repository.getTodos();
+    try {
+      return await repository.getTodos();
+    } catch (error) {
+      throw Exception(error);
+    }
   }
 }

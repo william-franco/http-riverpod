@@ -1,24 +1,20 @@
 // Project imports:
 import 'package:http_riverpod/src/features/todos/domain/entities/todo_entity.dart';
 
-abstract class TodoState {
-  const TodoState();
-}
+sealed class TodoState {}
 
-class TodoInitial extends TodoState {
-  const TodoInitial();
-}
+final class TodoInitial extends TodoState {}
 
-class TodoLoading extends TodoState {
-  const TodoLoading();
-}
+final class TodoLoading extends TodoState {}
 
-class TodoLoaded extends TodoState {
+final class TodoSuccess extends TodoState {
   final List<TodoEntity> todos;
-  const TodoLoaded(this.todos);
+
+  TodoSuccess({required this.todos});
 }
 
-class TodoError extends TodoState {
+final class TodoFailure extends TodoState {
   final String message;
-  const TodoError(this.message);
+
+  TodoFailure({required this.message});
 }

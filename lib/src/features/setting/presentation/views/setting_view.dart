@@ -1,37 +1,26 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 // Project imports:
-import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
+import 'package:http_riverpod/src/common_widgets/common_padding.dart';
+import 'package:http_riverpod/src/features/setting/presentation/widgets/info_list_tile_widget.dart';
+import 'package:http_riverpod/src/features/setting/presentation/widgets/theme_list_tile_widget.dart';
 
-class SettingView extends ConsumerWidget {
+class SettingView extends StatelessWidget {
   const SettingView({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(settingNotifierProvider);
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         title: const Text('Settings'),
       ),
-      body: SafeArea(
+      body: CommonPadding(
         child: ListView(
-          children: <Widget>[
-            ListTile(
-              leading: const Icon(Icons.brightness_6_outlined),
-              title: const Text('Dark theme'),
-              trailing: Switch(
-                value: state,
-                onChanged: (bool enabled) {
-                  ref
-                      .read(settingNotifierProvider.notifier)
-                      .changeTheme(enabled);
-                },
-              ),
-            ),
+          children: const <Widget>[
+            ThemeListTileWidget(),
+            InfoListTileWidget(),
           ],
         ),
       ),

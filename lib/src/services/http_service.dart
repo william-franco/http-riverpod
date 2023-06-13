@@ -1,7 +1,7 @@
 // Package imports:
 import 'package:dio/dio.dart';
 
-abstract class HttpService {
+abstract interface class HttpService {
   Future<Response> getData({BaseOptions? options, required String path});
 }
 

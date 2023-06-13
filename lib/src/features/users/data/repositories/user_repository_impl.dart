@@ -6,10 +6,16 @@ import 'package:http_riverpod/src/features/users/domain/repositories/user_reposi
 class UserRepositoryImpl implements UserRepository {
   final UserDataSource dataSource;
 
-  UserRepositoryImpl({required this.dataSource});
+  UserRepositoryImpl({
+    required this.dataSource,
+  });
 
   @override
   Future<List<UserEntity>> getUsers() async {
-    return await dataSource.getUsers();
+    try {
+      return await dataSource.getUsers();
+    } catch (error) {
+      throw Exception(error);
+    }
   }
 }

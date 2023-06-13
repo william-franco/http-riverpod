@@ -6,10 +6,16 @@ import 'package:http_riverpod/src/features/users/domain/usecases/user_use_case.d
 class UserUseCaseImpl implements UserUseCase {
   final UserRepository repository;
 
-  UserUseCaseImpl({required this.repository});
+  UserUseCaseImpl({
+    required this.repository,
+  });
 
   @override
   Future<List<UserEntity>> getUsers() async {
-    return await repository.getUsers();
+    try {
+      return await repository.getUsers();
+    } catch (error) {
+      throw Exception(error);
+    }
   }
 }

@@ -2,14 +2,14 @@
 import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
-import 'package:http_riverpod/src/features/bottom/presentation/riverpod/bottom_notifier.dart';
+import 'package:http_riverpod/src/features/bottom/presentation/view_models/bottom_view_model.dart';
 
 void main() {
   group('BottomViewModel', () {
-    late BottomNotifier notifier;
+    late BottomViewModel notifier;
 
     setUp(() {
-      notifier = BottomNotifier();
+      notifier = BottomViewModel();
     });
 
     test('initial value is 0', () {
@@ -17,7 +17,7 @@ void main() {
     });
 
     test('change index', () {
-      notifier.changeIndexBottom(1);
+      notifier.changeIndexBottom(index: 1);
       expect(notifier.state, 1);
     });
   });

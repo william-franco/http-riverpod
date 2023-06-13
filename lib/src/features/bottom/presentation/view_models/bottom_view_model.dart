@@ -4,10 +4,10 @@ import 'dart:developer';
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class BottomNotifier extends StateNotifier<int> {
-  BottomNotifier() : super(0);
+class BottomViewModel extends StateNotifier<int> {
+  BottomViewModel() : super(0);
 
-  void changeIndexBottom(int index) {
+  void changeIndexBottom({required int index}) {
     state = index;
     _debug();
   }

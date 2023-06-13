@@ -2,15 +2,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:http_riverpod/src/features/bottom/presentation/riverpod/bottom_notifier.dart';
-import 'package:http_riverpod/src/features/setting/presentation/riverpod/setting_notifier.dart';
+import 'package:http_riverpod/src/features/bottom/presentation/view_models/bottom_view_model.dart';
+import 'package:http_riverpod/src/features/setting/presentation/view_models/setting_view_model.dart';
 import 'package:http_riverpod/src/features/todos/data/datasources/todo_data_source.dart';
 import 'package:http_riverpod/src/features/todos/data/datasources/todo_data_source_impl.dart';
 import 'package:http_riverpod/src/features/todos/data/repositories/todo_repository_impl.dart';
 import 'package:http_riverpod/src/features/todos/domain/repositories/todo_repository.dart';
 import 'package:http_riverpod/src/features/todos/domain/usecases/todo_use_case.dart';
 import 'package:http_riverpod/src/features/todos/domain/usecases/todo_use_case_impl.dart';
-import 'package:http_riverpod/src/features/todos/presentation/riverpod/todo_notifier.dart';
+import 'package:http_riverpod/src/features/todos/presentation/view_models/todo_view_model.dart';
 import 'package:http_riverpod/src/features/todos/presentation/state/todo_state.dart';
 import 'package:http_riverpod/src/features/users/data/datasources/user_data_source.dart';
 import 'package:http_riverpod/src/features/users/data/datasources/user_data_source_impl.dart';
@@ -18,7 +18,7 @@ import 'package:http_riverpod/src/features/users/data/repositories/user_reposito
 import 'package:http_riverpod/src/features/users/domain/repositories/user_repository.dart';
 import 'package:http_riverpod/src/features/users/domain/usecases/user_use_case.dart';
 import 'package:http_riverpod/src/features/users/domain/usecases/user_use_case_impl.dart';
-import 'package:http_riverpod/src/features/users/presentation/riverpod/user_notifier.dart';
+import 'package:http_riverpod/src/features/users/presentation/view_models/user_view_model.dart';
 import 'package:http_riverpod/src/features/users/presentation/state/user_state.dart';
 import 'package:http_riverpod/src/services/http_service.dart';
 import 'package:http_riverpod/src/services/storage_service.dart';
@@ -60,22 +60,22 @@ final userUseCaseProvider = Provider<UserUseCase>((ref) {
 });
 
 // Notifier
-final bottomNotifierProvider =
-    StateNotifierProvider<BottomNotifier, int>((ref) {
-  return BottomNotifier();
+final bottomViewModelProvider =
+    StateNotifierProvider<BottomViewModel, int>((ref) {
+  return BottomViewModel();
 });
 
-final settingNotifierProvider =
-    StateNotifierProvider<SettingNotifier, bool>((ref) {
-  return SettingNotifier(storageService: ref.watch(storageServiceProvider));
+final settingViewModelProvider =
+    StateNotifierProvider<SettingViewModel, bool>((ref) {
+  return SettingViewModel(storageService: ref.watch(storageServiceProvider));
 });
 
-final todoNotifierProvider =
-    StateNotifierProvider<TodoNotifier, TodoState>((ref) {
-  return TodoNotifier(useCase: ref.watch(todoUseCaseProvider));
+final todoViewModelProvider =
+    StateNotifierProvider<TodoViewModel, TodoState>((ref) {
+  return TodoViewModel(useCase: ref.watch(todoUseCaseProvider));
 });
 
-final userNotifierProvider =
-    StateNotifierProvider<UserNotifier, UserState>((ref) {
-  return UserNotifier(useCase: ref.watch(userUseCaseProvider));
+final userViewModelProvider =
+    StateNotifierProvider<UserViewModel, UserState>((ref) {
+  return UserViewModel(useCase: ref.watch(userUseCaseProvider));
 });

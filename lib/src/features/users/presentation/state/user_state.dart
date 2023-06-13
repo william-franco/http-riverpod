@@ -1,24 +1,20 @@
 // Project imports:
 import 'package:http_riverpod/src/features/users/domain/entities/user_entity.dart';
 
-abstract class UserState {
-  const UserState();
-}
+sealed class UserState {}
 
-class UserInitial extends UserState {
-  const UserInitial();
-}
+final class UserInitial extends UserState {}
 
-class UserLoading extends UserState {
-  const UserLoading();
-}
+final class UserLoading extends UserState {}
 
-class UserLoaded extends UserState {
+final class UserSuccess extends UserState {
   final List<UserEntity> users;
-  const UserLoaded(this.users);
+
+  UserSuccess({required this.users});
 }
 
-class UserError extends UserState {
+final class UserFailure extends UserState {
   final String message;
-  const UserError(this.message);
+
+  UserFailure({required this.message});
 }

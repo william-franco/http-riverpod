@@ -1,6 +1,3 @@
-// Dart imports:
-import 'dart:developer';
-
 // Project imports:
 import 'package:http_riverpod/src/environments/environments.dart';
 import 'package:http_riverpod/src/features/todos/data/datasources/todo_data_source.dart';
@@ -9,24 +6,27 @@ import 'package:http_riverpod/src/features/todos/domain/entities/todo_entity.dar
 import 'package:http_riverpod/src/services/http_service.dart';
 
 class TodoDataSourceImpl implements TodoDataSource {
-  final List<TodoEntity> _listOfTodos = [];
-
   final HttpService httpService;
 
-  TodoDataSourceImpl({required this.httpService});
+  TodoDataSourceImpl({
+    required this.httpService,
+  });
 
   @override
   Future<List<TodoEntity>> getTodos() async {
+    final response = await httpService.getData(
+      path: Environments.baseURL + Environments.todos,
+    );
     try {
-      final response = await httpService.getData(
-        path: Environments.baseURL + Environments.todos,
-      );
-      _listOfTodos.addAll(TodoModel.jsonToList(response.data));
-      log('List: $_listOfTodos');
-      return _listOfTodos;
-    } catch (e) {
-      log('$e');
+      if (response.statusCode == 200) {
+        final success =
+            (response.data as List).map((e) => TodoModel.fromJson(e)).toList();
+        return success;
+      } else {
+        throw Exception('Failed to load todos. ${response.statusCode}');
+      }
+    } catch (error) {
+      throw Exception(error);
     }
-    return _listOfTodos;
   }
 }

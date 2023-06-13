@@ -26,14 +26,16 @@ class _BottomViewState extends ConsumerState<BottomView> {
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(bottomNotifierProvider);
+    final state = ref.watch(bottomViewModelProvider);
     return Scaffold(
       body: listOfWidgets.elementAt(state),
       bottomNavigationBar: NavigationBar(
         selectedIndex: state,
         animationDuration: const Duration(milliseconds: 600),
         onDestinationSelected: (int index) {
-          ref.read(bottomNotifierProvider.notifier).changeIndexBottom(index);
+          ref
+              .read(bottomViewModelProvider.notifier)
+              .changeIndexBottom(index: index);
         },
         destinations: const <NavigationDestination>[
           NavigationDestination(
