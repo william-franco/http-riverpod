@@ -57,30 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
-  dartz:
-    dependency: "direct main"
-    description:
-      name: dartz
-      sha256: e6acf34ad2e31b1eb00948692468c30ab48ac8250e0f0df661e29f12dd252168
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.10.1"
   dio:
     dependency: "direct main"
     description:
       name: dio
-      sha256: dfda195cbf351d538054297bbd509d8046d336194ea218655f2c326c65711d1e
+      sha256: "3866d67f93523161b643187af65f5ac08bc991a5bcdaf41a2d587fe4ccb49993"
       url: "https://pub.dev"
     source: hosted
-    version: "5.2.1"
-  equatable:
-    dependency: "direct main"
-    description:
-      name: equatable
-      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.5"
+    version: "5.3.0"
   fake_async:
     dependency: transitive
     description:
@@ -140,10 +124,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "1531542666c2d052c44bbf6e2b48011bf3771da0404b94c60eabec1228a62906"
+      sha256: b3cadd2cd59a4103fd5f6bc572ca75111264698784e927aa471921c3477d5475
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0"
+    version: "10.0.0"
   http_parser:
     dependency: transitive
     description:
@@ -438,5 +422,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=3.0.5 <4.0.0"
+  dart: ">=3.0.6 <4.0.0"
   flutter: ">=3.3.0"

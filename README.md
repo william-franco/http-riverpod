@@ -4,9 +4,11 @@ Application to manage states in flutter using Riverpod and Clean Architecture.
 
 Made with Flutter and some coffee cups. :D
 
+
 ## Author
 
 William Franco (Dev mobile).
+
 
 ## ScreenShots
 
@@ -18,9 +20,20 @@ William Franco (Dev mobile).
 |----------|----------|----------|
 | ![App Screenshot](assets/screenshots/screen-4.png) | ![App Screenshot](assets/screenshots/screen-5.png) | ![App Screenshot](assets/screenshots/screen-6.png) |
 
+
 ## Models
 
 Models were created using [JSON to Dart](https://javiercbk.github.io/json_to_dart/).
+
+
+## Coverage
+
+flutter test --coverage
+
+genhtml coverage/lcov.info -o coverage/html
+
+open coverage/html/index.html
+
 
 ## License
 

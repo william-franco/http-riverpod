@@ -5,31 +5,38 @@ import 'dart:developer';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
+import 'package:http_riverpod/src/exception_handling/exception_handling.dart';
 import 'package:http_riverpod/src/features/users/domain/usecases/user_use_case.dart';
 import 'package:http_riverpod/src/features/users/presentation/state/user_state.dart';
 
-class UserViewModel extends StateNotifier<UserState> {
+abstract base class UserViewModel extends StateNotifier<UserState> {
+  UserViewModel() : super(UserInitial());
+
+  Future<void> getUsers();
+}
+
+base class UserViewModelImpl extends StateNotifier<UserState>
+    implements UserViewModel {
   final UserUseCase useCase;
 
-  UserViewModel({
+  UserViewModelImpl({
     required this.useCase,
   }) : super(UserInitial());
 
+  @override
   Future<void> getUsers() async {
-    try {
-      state = UserLoading();
-      final users = await useCase.getUsers();
-      state = UserSuccess(users: users);
-      _debugProvider();
-    } catch (error) {
-      state = UserFailure(
-        message: 'Couldnt fetch weather. Is the device online?',
-      );
-      _debugProvider();
-    }
+    state = UserLoading();
+    final result = await useCase.getUsers();
+    final users = switch (result) {
+      Success(value: final users) => UserSuccess(users: users),
+      Failure(exception: final exception) =>
+        UserFailure(message: 'Something went wrong: $exception'),
+    };
+    state = users;
+    _debug();
   }
 
-  void _debugProvider() {
+  void _debug() {
     log('User state: $state');
   }
 }

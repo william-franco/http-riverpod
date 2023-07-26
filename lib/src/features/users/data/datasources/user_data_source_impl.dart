@@ -1,5 +1,6 @@
 // Project imports:
 import 'package:http_riverpod/src/environments/environments.dart';
+import 'package:http_riverpod/src/exception_handling/exception_handling.dart';
 import 'package:http_riverpod/src/features/users/data/datasources/user_data_source.dart';
 import 'package:http_riverpod/src/features/users/data/models/user_model.dart';
 import 'package:http_riverpod/src/features/users/domain/entities/user_entity.dart';
@@ -13,20 +14,22 @@ class UserDataSourceImpl implements UserDataSource {
   });
 
   @override
-  Future<List<UserEntity>> getUsers() async {
-    final response = await httpService.getData(
-      path: Environments.baseURL + Environments.users,
-    );
+  Future<Result<List<UserEntity>, Exception>> getUsers() async {
     try {
-      if (response.statusCode == 200) {
-        final success =
-            (response.data as List).map((e) => UserModel.fromJson(e)).toList();
-        return success;
-      } else {
-        throw Exception('Failed to load users. ${response.statusCode}');
+      final response = await httpService.getData(
+        path: Environments.baseURL + Environments.users,
+      );
+      switch (response.statusCode) {
+        case 200:
+          final success = (response.data as List)
+              .map((e) => UserModel.fromJson(e))
+              .toList();
+          return Success(value: success);
+        default:
+          return Failure(exception: Exception(response.statusMessage));
       }
-    } catch (error) {
-      throw Exception(error);
+    } on Exception catch (error) {
+      return Failure(exception: error);
     }
   }
 }

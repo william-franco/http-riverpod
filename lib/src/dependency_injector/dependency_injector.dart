@@ -10,16 +10,16 @@ import 'package:http_riverpod/src/features/todos/data/repositories/todo_reposito
 import 'package:http_riverpod/src/features/todos/domain/repositories/todo_repository.dart';
 import 'package:http_riverpod/src/features/todos/domain/usecases/todo_use_case.dart';
 import 'package:http_riverpod/src/features/todos/domain/usecases/todo_use_case_impl.dart';
-import 'package:http_riverpod/src/features/todos/presentation/view_models/todo_view_model.dart';
 import 'package:http_riverpod/src/features/todos/presentation/state/todo_state.dart';
+import 'package:http_riverpod/src/features/todos/presentation/view_models/todo_view_model.dart';
 import 'package:http_riverpod/src/features/users/data/datasources/user_data_source.dart';
 import 'package:http_riverpod/src/features/users/data/datasources/user_data_source_impl.dart';
 import 'package:http_riverpod/src/features/users/data/repositories/user_repository_impl.dart';
 import 'package:http_riverpod/src/features/users/domain/repositories/user_repository.dart';
 import 'package:http_riverpod/src/features/users/domain/usecases/user_use_case.dart';
 import 'package:http_riverpod/src/features/users/domain/usecases/user_use_case_impl.dart';
-import 'package:http_riverpod/src/features/users/presentation/view_models/user_view_model.dart';
 import 'package:http_riverpod/src/features/users/presentation/state/user_state.dart';
+import 'package:http_riverpod/src/features/users/presentation/view_models/user_view_model.dart';
 import 'package:http_riverpod/src/services/http_service.dart';
 import 'package:http_riverpod/src/services/storage_service.dart';
 
@@ -59,7 +59,7 @@ final userUseCaseProvider = Provider<UserUseCase>((ref) {
   return UserUseCaseImpl(repository: ref.watch(userRepositoryProvider));
 });
 
-// Notifier
+// ViewModels
 final bottomViewModelProvider =
     StateNotifierProvider<BottomViewModel, int>((ref) {
   return BottomViewModel();
@@ -72,10 +72,10 @@ final settingViewModelProvider =
 
 final todoViewModelProvider =
     StateNotifierProvider<TodoViewModel, TodoState>((ref) {
-  return TodoViewModel(useCase: ref.watch(todoUseCaseProvider));
+  return TodoViewModelImpl(useCase: ref.watch(todoUseCaseProvider));
 });
 
 final userViewModelProvider =
     StateNotifierProvider<UserViewModel, UserState>((ref) {
-  return UserViewModel(useCase: ref.watch(userUseCaseProvider));
+  return UserViewModelImpl(useCase: ref.watch(userUseCaseProvider));
 });

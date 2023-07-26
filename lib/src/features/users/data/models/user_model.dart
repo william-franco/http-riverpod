@@ -46,7 +46,44 @@ class UserModel extends UserEntity {
     return data;
   }
 
-  static List<UserModel> jsonToList(List<dynamic> data) {
-    return data.map((itens) => UserModel.fromJson(itens)).toList();
+  UserModel copyWith({
+    int? id,
+    String? name,
+    String? username,
+    String? email,
+    String? phone,
+    String? website,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      username: username ?? this.username,
+      email: email ?? this.email,
+      phone: phone ?? this.phone,
+      website: website ?? this.website,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UserModel &&
+        other.id == id &&
+        other.name == name &&
+        other.username == username &&
+        other.email == email &&
+        other.phone == phone &&
+        other.website == website;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        username.hashCode ^
+        email.hashCode ^
+        phone.hashCode ^
+        website.hashCode;
   }
 }
