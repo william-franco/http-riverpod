@@ -33,7 +33,7 @@
     },
     {
       "name": "collection",
-      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/collection-1.17.2",
+      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/collection-1.18.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -71,7 +71,7 @@
       "name": "flutter",
       "rootUri": "file:///home/william/Development/Flutter/packages/flutter",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_lints",
@@ -81,7 +81,7 @@
     },
     {
       "name": "flutter_riverpod",
-      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/flutter_riverpod-2.4.0",
+      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/flutter_riverpod-2.4.6",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -89,13 +89,13 @@
       "name": "flutter_test",
       "rootUri": "file:///home/william/Development/Flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_web_plugins",
       "rootUri": "file:///home/william/Development/Flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "go_router",
@@ -141,7 +141,7 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/meta-1.9.1",
+      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/meta-1.10.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -189,7 +189,7 @@
     },
     {
       "name": "riverpod",
-      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/riverpod-2.4.0",
+      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/riverpod-2.4.6",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -239,7 +239,7 @@
       "name": "sky_engine",
       "rootUri": "file:///home/william/Development/Flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "source_span",
@@ -249,7 +249,7 @@
     },
     {
       "name": "stack_trace",
-      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/stack_trace-1.11.0",
+      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/stack_trace-1.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -261,9 +261,9 @@
     },
     {
       "name": "stream_channel",
-      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/stream_channel-2.1.1",
+      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/stream_channel-2.1.2",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.19"
     },
     {
       "name": "string_scanner",
@@ -279,9 +279,9 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/test_api-0.6.0",
+      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/test_api-0.6.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "tint",
@@ -303,9 +303,9 @@
     },
     {
       "name": "web",
-      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/web-0.1.4-beta",
+      "rootUri": "file:///home/william/.pub-cache/hosted/pub.dev/web-0.3.0",
       "packageUri": "lib/",
-      "languageVersion": "3.1"
+      "languageVersion": "3.2"
     },
     {
       "name": "win32",
@@ -329,10 +329,10 @@
       "name": "http_riverpod",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.1"
+      "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-09-08T17:40:34.386763Z",
+  "generated": "2023-11-18T20:15:07.880390Z",
   "generator": "pub",
-  "generatorVersion": "3.1.1"
+  "generatorVersion": "3.2.0"
 }
