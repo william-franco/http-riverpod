@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:http_riverpod/src/common_widgets/common_padding.dart';
-import 'package:http_riverpod/src/features/setting/presentation/widgets/info_list_tile_widget.dart';
-import 'package:http_riverpod/src/features/setting/presentation/widgets/theme_list_tile_widget.dart';
+import 'package:http_riverpod/src/features/setting/widgets/info_list_tile_widget.dart';
+import 'package:http_riverpod/src/features/setting/widgets/theme_list_tile_widget.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({super.key});

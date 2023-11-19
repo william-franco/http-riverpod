@@ -2,8 +2,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import 'package:http_riverpod/src/features/bottom/presentation/view_models/bottom_view_model.dart';
-import 'package:http_riverpod/src/features/setting/presentation/view_models/setting_view_model.dart';
+import 'package:http_riverpod/src/features/bottom/models/bottom_model.dart';
+import 'package:http_riverpod/src/features/bottom/view_models/bottom_view_model.dart';
+import 'package:http_riverpod/src/features/setting/models/setting_model.dart';
+import 'package:http_riverpod/src/features/setting/view_models/setting_view_model.dart';
 import 'package:http_riverpod/src/features/todos/data/datasources/todo_data_source.dart';
 import 'package:http_riverpod/src/features/todos/data/datasources/todo_data_source_impl.dart';
 import 'package:http_riverpod/src/features/todos/data/repositories/todo_repository_impl.dart';
@@ -61,13 +63,14 @@ final userUseCaseProvider = Provider<UserUseCase>((ref) {
 
 // ViewModels
 final bottomViewModelProvider =
-    StateNotifierProvider<BottomViewModel, int>((ref) {
-  return BottomViewModel();
+    StateNotifierProvider<BottomViewModel, BottomModel>((ref) {
+  return BottomViewModelImpl();
 });
 
 final settingViewModelProvider =
-    StateNotifierProvider<SettingViewModel, bool>((ref) {
-  return SettingViewModel(storageService: ref.watch(storageServiceProvider));
+    StateNotifierProvider<SettingViewModel, SettingModel>((ref) {
+  return SettingViewModelImpl(
+      storageService: ref.watch(storageServiceProvider));
 });
 
 final todoViewModelProvider =

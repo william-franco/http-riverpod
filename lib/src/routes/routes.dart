@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import 'package:http_riverpod/src/features/bottom/presentation/views/bottom_view.dart';
+import 'package:http_riverpod/src/features/bottom/views/bottom_view.dart';
 
 final routesApp = Routes();
 

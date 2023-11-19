@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
-import 'package:http_riverpod/src/features/bottom/presentation/views/bottom_view.dart';
-import 'package:http_riverpod/src/features/setting/presentation/views/setting_view.dart';
+import 'package:http_riverpod/src/features/bottom/views/bottom_view.dart';
+import 'package:http_riverpod/src/features/setting/views/setting_view.dart';
 import 'package:http_riverpod/src/features/todos/presentation/views/todo_view.dart';
 import 'package:http_riverpod/src/features/users/presentation/views/user_view.dart';
 

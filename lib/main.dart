@@ -22,7 +22,7 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isDarkTheme = ref.watch(settingViewModelProvider);
+    final viewModel = ref.watch(settingViewModelProvider);
     return MaterialApp.router(
       title: 'Http Riverpod',
       debugShowCheckedModeBanner: false,
@@ -32,7 +32,7 @@ class MyApp extends ConsumerWidget {
       darkTheme: ThemeData.dark(
         useMaterial3: true,
       ),
-      themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
+      themeMode: viewModel.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
       routerConfig: routesApp.routes,
     );
   }

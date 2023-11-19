@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
 import 'package:http_riverpod/src/dependency_injector/dependency_injector.dart';
-import 'package:http_riverpod/src/features/setting/presentation/views/setting_view.dart';
+import 'package:http_riverpod/src/features/setting/views/setting_view.dart';
 import 'package:http_riverpod/src/features/todos/presentation/views/todo_view.dart';
 import 'package:http_riverpod/src/features/users/presentation/views/user_view.dart';
 
@@ -26,11 +26,11 @@ class _BottomViewState extends ConsumerState<BottomView> {
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(bottomViewModelProvider);
+    final viewModel = ref.watch(bottomViewModelProvider);
     return Scaffold(
-      body: listOfWidgets.elementAt(state),
+      body: listOfWidgets.elementAt(viewModel.indexTab),
       bottomNavigationBar: NavigationBar(
-        selectedIndex: state,
+        selectedIndex: viewModel.indexTab,
         animationDuration: const Duration(milliseconds: 600),
         onDestinationSelected: (int index) {
           ref
